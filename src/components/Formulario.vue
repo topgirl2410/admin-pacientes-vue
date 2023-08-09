@@ -56,6 +56,9 @@
                 <textarea id="sintomas" type="text" class="border-2 w-full p-2 mt-2  rounded-md h-40" />
             </div>
 
+            <input type="submit"
+                class="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-800 cursor-pointer transition-colors"
+                value="Registrar Paciente" />
         </form>
     </div>
 </template>
