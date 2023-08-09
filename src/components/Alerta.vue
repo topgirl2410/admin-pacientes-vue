@@ -9,14 +9,15 @@ const props = defineProps({
 })
 
 const isError = computed(() => {
-    return 'Esta es la funcion'
+    return props.alerta.tipo === 'error'
 })
 
 
 </script>
 
 <template>
-    <div :class="isError" class="text-white text-center p-3 uppercase font-bold mb-3 rounded-md bg-red-500">
+    <div :class="[isError ? 'bg-red-500' : 'bg-green-500']"
+        class="text-white text-center p-3 uppercase font-bold mb-3 rounded-md">
         {{ alerta.mensaje }}
     </div>
 </template>
