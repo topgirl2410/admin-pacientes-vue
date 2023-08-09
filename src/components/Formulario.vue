@@ -1,5 +1,10 @@
 <script setup>
 import { reactive } from 'vue'
+import Alerta from './Alerta.vue'
+
+const alerta = reactive({
+
+})
 
 const paciente = reactive({
     nombre: '',
@@ -11,8 +16,11 @@ const paciente = reactive({
 });
 
 const validar = () => {
+    if (Object.values(paciente).includes('')) {
 
-    console.log("validando....")
+        return
+    }
+    console.log('despues del if')
 }
 
 </script>
