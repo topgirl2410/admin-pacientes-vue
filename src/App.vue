@@ -1,24 +1,29 @@
 <script setup>
+import { ref, reactive } from 'vue'
+import { uid } from 'uid'
+
+
 import Header from './components/Header.vue'
 import Formulario from './components/Formulario.vue'
 import Paciente from './components/Paciente.vue'
-import { ref, reactive } from 'vue'
+
 
 
 const pacientes = ref([])
 
 const paciente = reactive({
+  id: null,
   nombre: '',
   propietario: '',
   email: '',
   alta: '',
   sintomas: ''
-
 });
 
 const guardarPaciente = () => {
   pacientes.value.push({
-    ...paciente
+    ...paciente,
+    id: uid()
   })
 
 
