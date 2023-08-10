@@ -7,7 +7,7 @@ const alerta = reactive({
     mensaje: ''
 })
 
-defineEmits(['update:nombre'])
+defineEmits(['update:nombre', 'update:propietario', 'update:email', 'update:alta', 'update:sintomas'])
 
 const props = defineProps({
     nombre: {
@@ -55,7 +55,8 @@ const validar = () => {
                 </label>
 
                 <input id="propietario" type="text" placeholder="Nombre del propietario"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                    @input="$emit('update:propietario', $event.target.value)" />
             </div>
 
 
@@ -65,7 +66,8 @@ const validar = () => {
                 </label>
 
                 <input id="email" type="text" placeholder="Email del propietario"
-                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
+                    class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                    @input="$emit('update:email', $event.target.value)" />
             </div>
 
             <div class="mb-5">
@@ -73,7 +75,8 @@ const validar = () => {
                     Alta
                 </label>
 
-                <input id="alta" type="date" class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" />
+                <input id="alta" type="date" class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                    @input="$emit('update:alta', $event.target.value)" />
             </div>
 
             <div class="mb-5">
@@ -81,12 +84,13 @@ const validar = () => {
                     Sintomas
                 </label>
 
-                <textarea id="sintomas" type="text" class="border-2 w-full p-2 mt-2  rounded-md h-40" />
+                <textarea id="sintomas" type="text" class="border-2 w-full p-2 mt-2  rounded-md h-40"
+                    @input="$emit('update:sintomas', $event.target.value)" />
             </div>
 
             <input type="submit"
                 class="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-800 cursor-pointer transition-colors"
-                value="Registrar Paciente" />
+                value="Registrar Paciente" @input="$emit('update:alta', $event.target.value)" />
         </form>
     </div>
 </template>
