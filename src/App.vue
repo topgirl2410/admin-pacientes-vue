@@ -1,6 +1,7 @@
 <script setup>
 import Header from './components/Header.vue'
 import Formulario from './components/Formulario.vue'
+import Paciente from './components/Paciente.vue'
 import { ref, reactive } from 'vue'
 
 
@@ -36,7 +37,12 @@ const guardarPaciente = () => {
         <h3 class="font-black text-3xl text-center">Administra tus Pacientes</h3>
 
         <div class="" v-if="pacientes.length > 0">
+          <p class="text-lg mt-5 text-center mb-10">
+            Información de
+            <span class="text-indigo-600 font-bold">tus Pacientes</span>
+          </p>
 
+          <Paciente v-for="paciente in pacientes" :paciente="paciente" />
         </div>
 
         <p v-else="" class="mt-20 text-2xl text-center">No hay pacientes registrados</p>
