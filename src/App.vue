@@ -32,9 +32,7 @@ const guardarPaciente = () => {
   })
 }
 
-
 </script>
-
 
 
 <template>

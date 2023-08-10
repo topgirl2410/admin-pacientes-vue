@@ -40,6 +40,7 @@ const validar = () => {
     }
 
     emit('guardar-paciente')
+    alerta.mensaje = 'Paciente Almacenado Correctamente'
 }
 
 </script>
