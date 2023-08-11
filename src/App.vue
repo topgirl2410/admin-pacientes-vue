@@ -48,7 +48,9 @@ const actualizarPaciente = (id) => {
   Object.assign(paciente, pacienteEditar)
 }
 
-
+const eliminarPaciente = (id) => {
+  pacientes.value = pacientes.value.filter(paciente => paciente.id !== id)
+}
 </script>
 
 
@@ -69,7 +71,8 @@ const actualizarPaciente = (id) => {
             <span class="text-indigo-600 font-bold">tus Pacientes</span>
           </p>
 
-          <Paciente v-for="paciente in pacientes" :paciente="paciente" @actualizar-paciente="actualizarPaciente" />
+          <Paciente v-for="paciente in pacientes" :paciente="paciente" @actualizar-paciente="actualizarPaciente"
+            @eliminar-paciente="eliminarPaciente" />
         </div>
 
         <p v-else="" class="mt-20 text-2xl text-center">No hay pacientes registrados</p>
