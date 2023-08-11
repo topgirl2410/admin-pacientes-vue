@@ -21,10 +21,18 @@ const paciente = reactive({
 });
 
 const guardarPaciente = () => {
-  pacientes.value.push({
-    ...paciente,
-    id: uid()
-  })
+  if (paciente.id) {
+    const { id } = paciente
+    const i = pacientes.value.findIndex((pacienteState) => pacienteState.id === id)
+    pacientes.value[i] = { ...paciente }
+  } else {
+    pacientes.value.push({
+      ...paciente,
+      id: uid()
+    })
+
+  }
+
 
 
   // Otra forma de reiniciar el objeto
@@ -38,7 +46,8 @@ const guardarPaciente = () => {
 }
 
 const actualizarPaciente = (id) => {
-  console.log('actualizando', id)
+  const pacienteEditar = pacientes.value.filter(paciente => paciente.id === id)[0]
+  Object.assign(paciente, pacienteEditar)
 }
 
 
